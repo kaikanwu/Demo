@@ -1,6 +1,5 @@
 package websocket;
 
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
@@ -8,7 +7,6 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
-import java.time.LocalDateTime;
 
 /**
  *  TextWebSocketFrame: 在 Netty 中，用于为 WebSocket 专门处理文本的对象，frame 是消息的载体
@@ -34,13 +32,13 @@ public class ChatHandler extends SimpleChannelInboundHandler<TextWebSocketFrame>
         System.out.println("接收到的数据: " + content);
 
         // 发送收到的消息
-        for (Channel channel : clients) {
-            channel.writeAndFlush(
-                    new TextWebSocketFrame(
-                            "【服务器在】：" + LocalDateTime.now()
-                            + "接收到消息，消息为：" + content));
-
-        }
+//        for (Channel channel : clients) {
+//            channel.writeAndFlush(
+//                    new TextWebSocketFrame(
+//                            "【服务器在】：" + LocalDateTime.now()
+//                            + "接收到消息，消息为：" + content));
+//
+//        }
         // 这个方法和上面的 for 循环，可以实现同样的目的
 //        clients.writeAndFlush(new TextWebSocketFrame(
 //                "【服务器在】：" + LocalDateTime.now()
