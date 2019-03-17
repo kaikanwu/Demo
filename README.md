@@ -1,3 +1,5 @@
 # Demo
-Some code demos during the learning process
+- dubbo configuration
+- netty with maven
+- socket
 
